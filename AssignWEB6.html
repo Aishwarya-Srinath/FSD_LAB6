@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calender</title>
+    <style>
+        table {
+            display: inline-table;
+        }
+    </style>
+</head>
+    <center>
+        <h1>NAME: S.AISHWARYA</h1>
+        <h2>USN: ENG18CS0235</h2>
+        <hr>
+        <h2>CALENDER</h2>
+    </center>
+<script>
+    function day_title(day_name)
+    {
+        document.write("<td align=center width=35 bgcolor=aqua><b>" + day_name + "</b></td>");
+    }
+    function fill_table(month,month_len)
+    {
+        day = 1;
+        document.write("<table border=1 cellspacing=4 cellpadding=4%>");
+        document.write("<tr><td colspan=7 align=center bgcolor=orange><b>" + month + " " + year + "</b></td></tr>");
+        day_title("SUNDAY");
+        day_title("MONDAY");
+        day_title("TUESDAY");
+        day_title("WEDNESDAY");
+        day_title("THURSDAY");
+        day_title("FRIDAY");
+        day_title("SATURDAY");
+        document.write("</tr><tr>");
+        for(var i=1; i<start_day; i++)
+        {
+            document.write("<td>");
+        }
+        for(var i=start_day; i<=7; i++)
+        {
+            document.write("<td align=center bgcolor=silver>" + day + "</td>");
+            day++;
+        }
+        document.write("<tr>");
+        while(day<=month_len)
+        {
+            for(var i=1; i<=7 && day<=month_len; i++)
+            {
+                document.write("<td align=center bgcolor=silver>" + day + "</td>");
+                day++;
+            }
+            document.write("<tr>");
+                start_day=i;
+        }
+        document.write("</tr></table>");
+    } 
+        year = prompt("Enter a 4 digit year: ",2021);
+        today = new Date("JANUARY 1, " + year);
+        start_day = today.getDay()+1;
+        fill_table("JANUARY",31);
+        if(year%4 == 0)
+        fill_table("FEBRUARY",29);
+        else
+        fill_table("FEBRUARY",28);
+        fill_table("MARCH",31);
+        fill_table("APRIL",30);
+        fill_table("MAY",31);
+        fill_table("JUNE",30);
+        fill_table("JULY",31);
+        fill_table("AUGUST",31);
+        fill_table("SEPTEMBER",30);
+        fill_table("OCTOBER",31);
+        fill_table("NOVEMBER",30);
+        fill_table("DECEMBER",31);
+</script>
+</html>
